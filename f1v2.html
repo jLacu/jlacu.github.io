@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dato de F1</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 2px solid #000;
+            border-radius: 10px;
+        }
+        h1 {
+            color: #FF0000;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #FF0000;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #CC0000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dato de F1</h1>
+        <h2 id="fact"></h2>
+        <img id="factImage" src="" alt="Imagen relacionada con el dato">
+        <button onclick="mostrarNuevoDato()">Siguiente Dato</button>
+    </div>
+
+    <script>
+        const datosF1 = [
+            { texto: "Michael Schumacher y Lewis Hamilton tienen el récord de más títulos mundiales con 7 cada uno.", imagen: "schumacher-hamilton.jpg" },
+            { texto: "El Gran Premio de Mónaco es considerado uno de los circuitos más difíciles del calendario de F1.", imagen: "monaco-gp.jpg" },
+            { texto: "Ayrton Senna logró 65 poles en su carrera, siendo un especialista en clasificación.", imagen: "senna.jpg" },
+            { texto: "El equipo Ferrari es el más antiguo y exitoso en la historia de la F1.", imagen: "ferrari.jpg" },
+            { texto: "El coche de F1 puede acelerar de 0 a 100 km/h en aproximadamente 2.6 segundos.", imagen: "f1-speed.jpg" },
+            { texto: "Sebastian Vettel es el piloto más joven en ganar un campeonato de F1, con 23 años en 2010.", imagen: "vettel.jpg" },
+            { texto: "El GP de Bélgica en Spa-Francorchamps tiene la curva Eau Rouge, una de las más icónicas de la F1.", imagen: "spa-eaurouge.jpg" },
+            { texto: "Lewis Hamilton ha ganado al menos una carrera en todas sus temporadas en F1 hasta 2022.", imagen: "hamilton.jpg" },
+            { texto: "El GP de Canadá de 2011 fue la carrera más larga en la historia de la F1, durando más de 4 horas.", imagen: "canada2011.jpg" },
+            { texto: "Kimi Räikkönen es el último piloto en ganar un título con Ferrari en 2007.", imagen: "raikkonen2007.jpg" },
+            { texto: "Max Verstappen es el piloto más joven en ganar un Gran Premio, con 18 años en 2016.", imagen: "verstappen2016.jpg" },
+            { texto: "El circuito de Suzuka es el único en la F1 con un diseño en forma de ‘8’.", imagen: "suzuka.jpg" },
+            { texto: "El GP de Singapur fue la primera carrera nocturna en la historia de la F1 en 2008.", imagen: "singapore-night.jpg" },
+            { texto: "Los neumáticos de un F1 pueden desgastarse completamente en menos de 20 vueltas si se empujan al límite.", imagen: "tires.jpg" },
+            { texto: "La vuelta más rápida en la historia de la F1 fue establecida por Juan Pablo Montoya en Monza 2004.", imagen: "montoya2004.jpg" },
+            { texto: "Niki Lauda ganó su tercer campeonato en 1984 por solo medio punto de ventaja.", imagen: "lauda1984.jpg" },
+            { texto: "El equipo McLaren tiene la parada en boxes más rápida registrada: 1.8 segundos.", imagen: "mclaren-pitstop.jpg" },
+            { texto: "Ayrton Senna ganó seis veces en Mónaco, el récord absoluto en ese circuito.", imagen: "senna-monaco.jpg" }
+        ];
+        
+        let currentIndex = 0;
+        
+        function mostrarNuevoDato() {
+            currentIndex = (currentIndex + 1) % datosF1.length;
+            document.getElementById("fact").textContent = datosF1[currentIndex].texto;
+            document.getElementById("factImage").src = datosF1[currentIndex].imagen;
+        }
+        
+        mostrarNuevoDato();
+    </script>
+</body>
+</html>
