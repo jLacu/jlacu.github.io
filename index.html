@@ -80,13 +80,22 @@
             { texto: "Ayrton Senna ganó seis veces en Mónaco, el récord absoluto en ese circuito.", imagen: "senna-monaco.jpg" }
         ];
         
-        let currentIndex = 0;
-        
-        function mostrarNuevoDato() {
-            currentIndex = (currentIndex + 1) % datosF1.length;
-            document.getElementById("fact").textContent = datosF1[currentIndex].texto;
-            document.getElementById("factImage").src = datosF1[currentIndex].imagen;
-        }
+let currentIndex = -1; // Para evitar que se repita el mismo dato al inicio
+
+function mostrarNuevoDato() {
+    if (!datosF1 || datosF1.length === 0) return; // Verifica que haya datos
+
+    let newIndex;
+    do {
+        newIndex = Math.floor(Math.random() * datosF1.length); // Genera un índice aleatorio
+    } while (newIndex === currentIndex); // Evita que salga el mismo dato consecutivamente
+
+    currentIndex = newIndex;
+
+    document.getElementById("fact").textContent = datosF1[currentIndex].texto;
+    document.getElementById("factImage").src = datosF1[currentIndex].imagen;
+}
+
         
         mostrarNuevoDato();
     </script>
